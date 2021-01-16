@@ -1,0 +1,14 @@
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:    
+  nuget-alpha:
+    if: contains(github.event.issue.labels.*.name, 'Run Test') != true
+    runs-on: ubuntu-latest
+    name: Nuget PreRelease package check
+    steps:
+      - uses: agoda-com/ga-nuget-alpha-detection@v1
+        with:
+          solution-file-full-path: 'nuget-alpha/ConsoleApp1.sln'
