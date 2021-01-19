@@ -17,8 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo -e "Default \e[31mRed"
-      - run: docker run mcr.microsoft.com/powershell:7.1.1-ubuntu-18.04 pwsh -Command 'Write-Host "Default \e[31mRed"'
-      - run: docker run mcr.microsoft.com/powershell:7.1.1-ubuntu-18.04 pwsh -Command 'Write-Host "asdasd" -ForegroundColor Red'
+      - run: docker run -t mcr.microsoft.com/powershell:7.1.1-ubuntu-18.04 pwsh -Command 'Write-Host "Default \e[31mRed"'
+      - run: docker run -t mcr.microsoft.com/powershell:7.1.1-ubuntu-18.04 pwsh -Command 'Write-Host "asdasd" -ForegroundColor Red'
       - uses: agoda-com/ga-nuget-alpha-detection@v1
         with:
           solution-file-full-path: 'nuget-alpha/ConsoleApp1.sln'
