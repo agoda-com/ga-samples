@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Nuget PreRelease package check
     steps:
+      - run: echo "\033[31;1;4mHello\033[0m"
+      - run: docker run mcr.microsoft.com/powershell:7.1.1-ubuntu-18.04 pwsh -Command 'Write-Host \033[31;1;4mHello\033[0m"'
       - uses: actions/checkout@v2
       - uses: agoda-com/ga-nuget-alpha-detection@v1
         with:
           solution-file-full-path: 'nuget-alpha/ConsoleApp1.sln'
-      - run: echo "\033[31;1;4mHello\033[0m"
-      - run: docker run mcr.microsoft.com/powershell:7.1.1-ubuntu-18.04 pwsh -Command 'Write-Host \033[31;1;4mHello\033[0m"'
